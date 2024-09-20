@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("take-picture-button").addEventListener("click", () => {
         document.getElementById("take-picture-div").style.display = "flex";
-        scrollTo("take-picture-div");
     });
 
     document.getElementById("choose-joker-button").addEventListener("click", () => {
         document.getElementById("choose-joker-div").style.display = "flex";
-        scrollTo("choose-joker-div");
     });
 
     const video = document.getElementById("video");
@@ -35,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
     captureButton.addEventListener("click", () => {
         photo.style.zIndex = "2";
         document.getElementById("choose-joker-button").disabled = false;
-        scrollTo("choose-joker-button");
 
         const context = canvas.getContext("2d");
         canvas.width = video.videoWidth;
@@ -123,7 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("confirmJoker").addEventListener("click", () => {
         document.getElementById("getResultsButton").disabled = false;
-        scrollTo("getResultsButton");
     });
 
     document.getElementById("getResultsButton").addEventListener("click", () => {
@@ -151,11 +147,3 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     });
 });
-
-function scrollTo(elementId) {
-    const y = document.getElementById(elementId).getBoundingClientRect().top + window.scrollY;
-    window.scroll({
-        top: y,
-        behavior: "smooth",
-    });
-}
