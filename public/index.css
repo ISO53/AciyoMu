@@ -236,5 +236,23 @@ img {
 }
 
 @media screen and (orientation:landscape) {
+    .top_svg {
+        width: 50%;
+        right: 0;
+        height: 230px;
+    }
 
+    .bottom_svg {
+        width: 50%;
+        left: 0;
+        height: 230px;
+    }
+
+    .header {
+        margin-top: 10%;
+    }
+
+    #take-picture-div {
+        width: 50%;
+    }
 }
