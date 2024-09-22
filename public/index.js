@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // Send a POST request to the backend
-        fetch("/process-image", {
+        fetch("https://aciyomu-iso53s-projects.vercel.app/api/process-image", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
