@@ -141,6 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
             .then((response) => response.json())
             .then((result) => {
                 console.log("Processing result: ", result);
+                let image = document.createElement("img");
+                image.src = result.processedImage;
+                document.getElementById("get-results-div").appendChild(image);
             })
             .catch((error) => {
                 console.error("Error processing the image: ", error);
