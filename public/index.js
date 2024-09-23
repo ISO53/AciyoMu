@@ -138,7 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             body: JSON.stringify(data),
         })
-            .then((response) => response.json())
+            .then((response) => {
+                console.log("Raw response: " + response);
+                return response.json()
+            })
             .then((result) => {
                 console.log("Processing result: ", result);
                 let image = document.createElement("img");
