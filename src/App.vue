@@ -1,7 +1,9 @@
 <script setup>
+  import CameraBackground from "@/components/CameraBackground.vue";
 </script>
 
 <template>
+  <CameraBackground />
     <header>
     </header>
 
