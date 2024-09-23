@@ -1,8 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import base64
-import cv2
-import numpy as np
-from PIL import Image
+from PIL import Image, ImageOps
 from io import BytesIO
 import json
 
@@ -28,14 +26,14 @@ class handler(BaseHTTPRequestHandler):
             # Decode the base64 image
             image_data = base64.b64decode(image.split(',')[1])
             img = Image.open(BytesIO(image_data))
-            img = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
 
             # Convert the image to grayscale
-            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            gray_img = ImageOps.grayscale(img)
 
             # Encode the processed image to base64
-            _, buffer = cv2.imencode('.png', gray_img)
-            processed_image = base64.b64encode(buffer).decode('utf-8')
+            buffered = BytesIO()
+            gray_img.save(buffered, format="PNG")
+            processed_image = base64.b64encode(buffered.getvalue()).decode('utf-8')
             processed_image = f'data:image/png;base64,{processed_image}'
 
             response = {
