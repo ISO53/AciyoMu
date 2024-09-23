@@ -1,16 +1,11 @@
 <script setup>
-  import CameraBackground from "@/components/CameraBackground.vue";
+import CameraBackground from "@/components/CameraBackground.vue";
+import TopBar from "./components/TopBar.vue";
 </script>
 
 <template>
-  <CameraBackground />
-    <header>
-    </header>
-
-    <main>
-    </main>
+    <TopBar />
+    <CameraBackground />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
