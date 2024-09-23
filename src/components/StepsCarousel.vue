@@ -43,6 +43,7 @@ export default defineComponent({
     position: absolute;
     width: 100%;
     bottom: 0;
+    left: 0;
 }
 
 .carousel__item {
