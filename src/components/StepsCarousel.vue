@@ -69,7 +69,7 @@ export default defineComponent({
             canvas.height = video.videoHeight;
             const context = canvas.getContext("2d");
             context.drawImage(video, 0, 0, canvas.width, canvas.height);
-            photo.value = canvas.toDataURL("image/png");
+            photo.value = canvas.toDataURL("image/png").split(",")[1];
         };
 
         const sendData = async () => {
