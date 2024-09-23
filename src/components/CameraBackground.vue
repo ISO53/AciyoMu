@@ -1,4 +1,3 @@
-<!-- src/components/CameraBackground.vue -->
 <template>
     <div class="camera-background">
         <video ref="video" autoplay playsinline></video>
