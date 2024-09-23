@@ -4,6 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+opencv-python-headless = "*"
+Pillow = "*"
 numpy = "1.21.0"
 
 [requires]
