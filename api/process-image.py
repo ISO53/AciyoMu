@@ -3,6 +3,7 @@ import base64
 from PIL import Image
 from io import BytesIO
 import json
+import cv2
 
 class handler(BaseHTTPRequestHandler):
 
