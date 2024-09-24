@@ -1,6 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import base64
-from PIL import Image, ImageOps
+from PIL import Image
 from io import BytesIO
 import json
 
@@ -39,8 +39,7 @@ class handler(BaseHTTPRequestHandler):
             image_data = base64.b64decode(image.split(',')[1])
             img = Image.open(BytesIO(image_data))
 
-            # Convert the image to grayscale
-            gray_img = ImageOps.grayscale(img)
+            # PROCESS THE IMAGE HERE
 
             # Encode the processed image to base64
             buffered = BytesIO()
