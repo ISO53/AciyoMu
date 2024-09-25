@@ -1,10 +1,17 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import base64
+import os
 from PIL import Image
 from io import BytesIO
 import json
 import cv2
 import numpy as np
+import pathlib
+import textwrap
+import google.generativeai as genai
+
+GOOGLE_API_KEY = ""
+generation_config = {}
 
 class handler(BaseHTTPRequestHandler):
 
@@ -56,6 +63,22 @@ def run(server_class=HTTPServer, handler_class=handler, port=8000):
     httpd = server_class(server_address, handler_class)
     print(f'Starting server on port {port}...')
     httpd.serve_forever()
+
+def init():
+    GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+    # Create the model
+    generation_config = {
+        "temperature": 1,
+        "top_p": 0.95,
+        "top_k": 40,
+        "max_output_tokens": 8192,
+        "response_mime_type": "text/plain",
+    }
+    
+def upload_to_gemini(path, mime_type=None):
+  file = genai.upload_file(path, mime_type=mime_type)
+  print(f"Uploaded file '{file.display_name}' as: {file.uri}")
+  return file
 
 if __name__ == '__main__':
     run()
