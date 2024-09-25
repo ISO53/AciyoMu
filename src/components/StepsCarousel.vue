@@ -1,6 +1,6 @@
 <template>
     <div class="back-shadow"></div>
-    <Carousel paginationColor="blue" paginationActiveColor="red" class="main">
+    <Carousel class="main">
         <Slide key="1">
             <div class="carousel__item">
                 <h1>Açıyo mu?</h1>
