@@ -17,7 +17,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 400px;
+    height: 200px;
     background-image: linear-gradient(black, transparent);
 }
 
@@ -25,7 +25,7 @@
     color: #fafafa;
     font-family: monospace;
     font-weight: 900;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 .elements {
@@ -33,13 +33,13 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    height: 60px;
     padding: 10px;
 }
 
 #github-link {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 .github-logo {
