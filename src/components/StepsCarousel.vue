@@ -1,5 +1,6 @@
 <template>
-    <Carousel class="main">
+    <div class="back-shadow"></div>
+    <Carousel paginationColor="blue" paginationActiveColor="red" class="main">
         <Slide key="1">
             <div class="carousel__item">
                 <h1>Açıyo mu?</h1>
@@ -80,7 +81,7 @@ export default defineComponent({
             };
 
             try {
-                const response = await fetch("https://aciyomu-iso53s-projects.vercel.app/api/process-image", {
+                const response = await fetch("http://localhost:8000/api/process-image", { // aciyomu-iso53s-projects.vercel.app
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -105,27 +106,33 @@ export default defineComponent({
 </script>
 
 <style>
-.main {
+.back-shadow {
     position: absolute;
     width: 100%;
     bottom: 0;
+    left: 0;
+    height: 450px;
+    background-image: linear-gradient(to top, black, transparent);
+}
+
+.main {
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
     left: 0;
 }
 
 .carousel__item {
     font-family: monospace;
-    min-height: 200px;
     width: 100%;
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.5);
     color: white;
     font-size: 1rem;
-    border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 20px;
+    padding: 10px;
+    padding-bottom: 0px;
 }
 
 .carousel__item h1 {
@@ -140,5 +147,13 @@ export default defineComponent({
 
 .carousel__slide {
     padding: 10px;
+}
+
+.carousel__pagination-button::after {
+    background-color: rgb(100, 100, 100);
+}
+
+.carousel__pagination-button--active::after {
+    background-color: white;
 }
 </style>
