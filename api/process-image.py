@@ -4,6 +4,7 @@ from PIL import Image
 from io import BytesIO
 import json
 import cv2
+import numpy as np
 
 class handler(BaseHTTPRequestHandler):
 
@@ -40,21 +41,9 @@ class handler(BaseHTTPRequestHandler):
             image_data = base64.b64decode(image.split(',')[1])
             img = Image.open(BytesIO(image_data))
 
-            # PROCESS THE IMAGE HERE
 
-            # Encode the processed image to base64
-            buffered = BytesIO()
-            gray_img.save(buffered, format="PNG")
-            processed_image = base64.b64encode(buffered.getvalue()).decode('utf-8')
-            processed_image = f'data:image/png;base64,{processed_image}'
 
-            response = {
-                'processedImage': processed_image,
-                'number': number,
-                'color': color,
-            }
-
-            self.wfile.write(json.dumps(response).encode('utf-8'))
+            self.wfile.write(json.dumps().encode('utf-8'))
         except Exception as e:
             print('Error processing the image:', e)
             self.send_response(500)
