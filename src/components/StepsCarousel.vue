@@ -111,7 +111,7 @@ export default defineComponent({
     width: 100%;
     bottom: 0;
     left: 0;
-    height: 450px;
+    height: 200px;
     background-image: linear-gradient(to top, black, transparent);
 }
 
