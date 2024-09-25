@@ -17,19 +17,25 @@
             </div>
         </Slide>
         <Slide key="3">
-            <div class="carousel__item">
+            <div class="carousel__item choose-joker-div">
                 <h1>Jokeri Seç</h1>
-                <label for="number">Numara:</label>
-                <select id="number" v-model="jokerNumber">
-                    <option v-for="n in 13" :key="n" :value="n">{{ n }}</option>
-                </select>
-                <label for="color">Renk:</label>
-                <select id="color" v-model="jokerColor">
-                    <option value="red">Kırmızı</option>
-                    <option value="black">Siyah</option>
-                    <option value="black">Mavi</option>
-                    <option value="black">Sarı</option>
-                </select>
+                <div style="margin-top: 10px;">
+                    <div>
+                        <label for="number">Numara </label>
+                        <select class="chooser" id="number" v-model="jokerNumber">
+                            <option v-for="n in 13" :key="n" :value="n">{{ n }}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="color">Renk </label>
+                        <select class="chooser" id="color" v-model="jokerColor">
+                            <option value="red">Kırmızı</option>
+                            <option value="black">Siyah</option>
+                            <option value="black">Mavi</option>
+                            <option value="black">Sarı</option>
+                        </select>
+                    </div>
+                </div>
             </div>
         </Slide>
         <Slide key="4">
@@ -176,5 +182,26 @@ export default defineComponent({
 
 .take-photo-div button:active {
     background-color: rgb(200, 200, 200);
+}
+
+.choose-joker-div {
+    align-items: center;
+}
+
+.choose-joker-div h1 {
+    font-size: 0.8rem;
+    color: rgb(200, 200, 200);
+}
+
+.choose-joker-div > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.chooser {
+    border: 2px solid white;
+    border-radius: 5px;
 }
 </style>
