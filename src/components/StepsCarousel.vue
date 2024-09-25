@@ -39,9 +39,8 @@
             </div>
         </Slide>
         <Slide key="4">
-            <div class="carousel__item">
-                <h1>Sonuç</h1>
-                <button @click="sendData">Sonucu Gönder</button>
+            <div class="carousel__item result-div">
+                <button @click="sendData">Sonucu Öğren</button>
             </div>
         </Slide>
 
@@ -203,5 +202,28 @@ export default defineComponent({
 .chooser {
     border: 2px solid white;
     border-radius: 5px;
+}
+
+.result-div {
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.result-div  button {
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid white;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-family: monospace;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.result-div button:active {
+    background-color: white;
+    color: black;
 }
 </style>
