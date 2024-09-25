@@ -11,9 +11,9 @@
             </div>
         </Slide>
         <Slide key="2">
-            <div class="carousel__item">
+            <div class="carousel__item take-photo-div">
                 <h1>Elinin Fotoğrafını Çek</h1>
-                <button @click="takePhoto">Fotoğraf Çek</button>
+                <button @click="takePhoto"></button>
             </div>
         </Slide>
         <Slide key="3">
@@ -146,7 +146,7 @@ export default defineComponent({
 }
 
 .carousel__slide {
-    padding: 10px;
+    padding: 10px 10px 0 10px;
 }
 
 .carousel__pagination-button::after {
@@ -155,5 +155,26 @@ export default defineComponent({
 
 .carousel__pagination-button--active::after {
     background-color: white;
+}
+
+.take-photo-div {
+    align-items: center;
+}
+
+.take-photo-div h1 {
+    font-size: 0.8rem;
+    color: rgb(200, 200, 200);
+}
+
+.take-photo-div button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 10px;
+    border: none;
+}
+
+.take-photo-div button:active {
+    background-color: rgb(200, 200, 200);
 }
 </style>
