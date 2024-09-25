@@ -126,7 +126,7 @@ export default defineComponent({
     font-family: monospace;
     width: 100%;
     color: white;
-    font-size: 1rem;
+    font-size: 0.8rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
