@@ -13,6 +13,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "vue": "^3.4.29",
+    "vue-scroll-picker": "^1.2.3",
     "vue3-carousel": "^0.3.4"
   },
   "devDependencies": {
