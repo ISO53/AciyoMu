@@ -31,7 +31,7 @@ app.post("/api/analyze-okey", async (req, res) => {
         let mimeType = parts[0].split(":")[1].split(";")[0];
 
         const prompt =
-            "Take the given image of a rack for the popular Turkish game 'okey', detect and identifiy each and every one of the pieces. Identify each piece by its number and color. Do not hallucinate new pieces. If the piece has a symbol instead of number pass 'fake_okey' as a value for color. If the piece has nothing on it, it is a joker. Pass 999 as a number. Give your answer in pure json format. Keep in mind that colors can only be {red, black, blue, yellow} and numbers are between 1-13";
+            "Take the given image of a rack for the popular Turkish game 'okey', detect and identifiy each and every one of the pieces. Identify each piece by its number and color. Do not hallucinate new pieces. If the piece has a symbol instead of number pass 'fake_okey' as a value for color. If the piece has nothing on it, it is a joker, pass 'joker' as a value for color. Give your answer in pure json format. Keep in mind that colors can only be {red, black, blue, yellow} and numbers are between 1-13";
 
         const imageData = {
             inlineData: {
