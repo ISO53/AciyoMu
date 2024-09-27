@@ -19,21 +19,14 @@
         <Slide key="3">
             <div class="carousel__item choose-joker-div">
                 <h1>Jokeri Seç</h1>
-                <div style="margin-top: 10px;">
+                <div style="margin-top: 10px">
                     <div>
-                        <label for="number">Numara </label>
-                        <select class="chooser" id="number" v-model="jokerNumber">
-                            <option v-for="n in 13" :key="n" :value="n">{{ n }}</option>
-                        </select>
+                        <label for="number">Numara</label>
+                        <VueScrollPicker :options="numberOptions" v-model="jokerNumber" />
                     </div>
                     <div>
-                        <label for="color">Renk </label>
-                        <select class="chooser" id="color" v-model="jokerColor">
-                            <option value="red">Kırmızı</option>
-                            <option value="black">Siyah</option>
-                            <option value="black">Mavi</option>
-                            <option value="black">Sarı</option>
-                        </select>
+                        <label for="color">Renk</label>
+                        <VueScrollPicker :options="colorOptions" v-model="jokerColor" />
                     </div>
                 </div>
             </div>
@@ -53,8 +46,9 @@
 <script>
 import {defineComponent, ref} from "vue";
 import {Carousel, Pagination, Slide} from "vue3-carousel";
-
+import {VueScrollPicker} from "vue-scroll-picker";
 import "vue3-carousel/dist/carousel.css";
+import "vue-scroll-picker/lib/style.css";
 
 export default defineComponent({
     name: "StepsCarousel",
@@ -62,6 +56,7 @@ export default defineComponent({
         Carousel,
         Slide,
         Pagination,
+        VueScrollPicker,
     },
     setup() {
         const photo = ref(null);
@@ -105,6 +100,8 @@ export default defineComponent({
             sendData,
             jokerNumber,
             jokerColor,
+            numberOptions: Array.from({length: 13}, (v, k) => k + 1),
+            colorOptions: ["Kırmızı", "Siyah", "Mavi", "Sarı"],
         };
     },
 });
@@ -199,6 +196,10 @@ export default defineComponent({
     width: 100%;
 }
 
+.choose-joker-div > div > div {
+    width: 100%;
+}
+
 .chooser {
     border: 2px solid white;
     border-radius: 5px;
@@ -225,5 +226,27 @@ export default defineComponent({
 .result-div button:active {
     background-color: white;
     color: black;
+}
+
+.vue-scroll-picker {
+    max-height: 75px;
+}
+
+.vue-scroll-picker-item {
+    color: rgb(200, 200, 200);
+    transition: transform 100ms ease;
+}
+
+.vue-scroll-picker-item-selected {
+    color: white;
+    transform: scale(110%);
+}
+
+.vue-scroll-picker-layer-top {
+    background: inherit;
+}
+
+.vue-scroll-picker-layer-bottom {
+    background: inherit;
 }
 </style>
