@@ -1,6 +1,6 @@
 <template>
     <div class="back-shadow"></div>
-    <Carousel class="main">
+    <Carousel class="main" :mouseDrag="false" :touchDrag="false">
         <Slide key="1">
             <div class="carousel__item">
                 <h1>Açıyo mu?</h1>
@@ -39,13 +39,14 @@
 
         <template #addons>
             <Pagination />
+            <Navigation />
         </template>
     </Carousel>
 </template>
 
 <script>
 import {defineComponent, ref} from "vue";
-import {Carousel, Pagination, Slide} from "vue3-carousel";
+import {Carousel, Pagination, Slide, Navigation} from "vue3-carousel";
 import {VueScrollPicker} from "vue-scroll-picker";
 import "vue3-carousel/dist/carousel.css";
 import "vue-scroll-picker/lib/style.css";
@@ -56,6 +57,7 @@ export default defineComponent({
         Carousel,
         Slide,
         Pagination,
+        Navigation,
         VueScrollPicker,
     },
     setup() {
@@ -126,7 +128,7 @@ export default defineComponent({
 
 .carousel__item {
     font-family: monospace;
-    width: 100%;
+    width: 85%;
     color: white;
     font-size: 0.8rem;
     display: flex;
@@ -157,6 +159,12 @@ export default defineComponent({
 
 .carousel__pagination-button--active::after {
     background-color: white;
+}
+
+.carousel__prev,
+.carousel__next {
+    box-sizing: content-box;
+    color: white;
 }
 
 .take-photo-div {
