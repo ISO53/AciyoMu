@@ -22,11 +22,11 @@
                 <div style="margin-top: 10px">
                     <div>
                         <label for="number">Numara</label>
-                        <VueScrollPicker :options="numberOptions" v-model="jokerNumber" :dragSensitivity="0.5" />
+                        <VueScrollPicker :options="numberOptions" v-model="jokerNumber" :dragSensitivity="0.4" />
                     </div>
                     <div>
                         <label for="color">Renk</label>
-                        <VueScrollPicker :options="colorOptions" v-model="jokerColor" :dragSensitivity="0.5" />
+                        <VueScrollPicker :options="colorOptions" v-model="jokerColor" :dragSensitivity="0.4" />
                     </div>
                 </div>
             </div>
