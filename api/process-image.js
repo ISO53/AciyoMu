@@ -11,7 +11,7 @@ const app = express();
 const port = 3000;
 const model = genAI.getGenerativeModel({
     model: "gemini-1.5-pro-002",
-    systemInstruction: "extract pieces and return it in json format",
+    systemInstruction: "Never use markdown formatting or any other formatting, return your answer in raw JSON.",
 });
 
 app.use(express.json({limit: "50mb"}));
@@ -28,10 +28,10 @@ app.post("/api/analyze-okey", async (req, res) => {
         // Ensure the image is a proper base64 string
         const parts = image.split(",");
         let base64Data = parts[1].split(/[^\w\+\/=]+/)[0];
-        let mimeType = parts[0].split(':')[1].split(';')[0];
+        let mimeType = parts[0].split(":")[1].split(";")[0];
 
         const prompt =
-            "Take the given image of a rack for the popular Turkish game 'okey', detect and identifiy each and every one of the pieces. Identify each piece by its number and color. If the piece has a symbol instead of number pass 'fake_okey' as a value for color. If the piece has nothing on it, it is a joker. Pass 999 as a number. Give your answer in json format. Keep in mind that colors can only be {red, black, blue, yellow} and numbers are between 1-13";
+            "Take the given image of a rack for the popular Turkish game 'okey', detect and identifiy each and every one of the pieces. Identify each piece by its number and color. Do not hallucinate new pieces. If the piece has a symbol instead of number pass 'fake_okey' as a value for color. If the piece has nothing on it, it is a joker. Pass 999 as a number. Give your answer in pure json format. Keep in mind that colors can only be {red, black, blue, yellow} and numbers are between 1-13";
 
         const imageData = {
             inlineData: {
@@ -41,9 +41,15 @@ app.post("/api/analyze-okey", async (req, res) => {
         };
 
         const result = await model.generateContent([prompt, imageData]);
-        console.log(result.response.text());
 
-        res.status(200).json(result);
+        // Clean the markdown
+        const cleanJsonString = result.response.text().replace("```json", "").replaceAll("`", "").replaceAll("\n", "");
+
+        const pieces = JSON.parse(cleanJsonString);
+
+        console.log(pieces);
+
+        res.status(200).json(pieces);
     } catch (error) {
         console.error("Error processing the image:", error);
         res.status(500).json({error: "Internal server error"});
