@@ -209,7 +209,7 @@ export default defineComponent({
     justify-content: flex-end;
 }
 
-.result-div  button {
+.result-div button {
     width: 150px;
     height: 40px;
     border-radius: 20px;
