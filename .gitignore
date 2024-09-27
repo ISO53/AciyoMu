@@ -43,4 +43,4 @@ node_modules
 package-lock.json
 
 ### other ###
-image-processing.ipynb
+.env
