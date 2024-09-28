@@ -13,7 +13,7 @@
         <Slide key="2">
             <div class="carousel__item take-photo-div">
                 <h1>Elinin Fotoğrafını Çek</h1>
-                <button @click="takePhoto"></button>
+                <button @click="takePhoto" :disabled="isButtonDisabled"></button>
             </div>
         </Slide>
         <Slide key="3">
@@ -74,8 +74,10 @@ export default defineComponent({
         const photo = ref(null);
         const jokerNumber = ref(null);
         const jokerColor = ref(null);
+        const isButtonDisabled = ref(false);
 
         const takePhoto = () => {
+            isButtonDisabled.value = true;
             const video = document.querySelector("video");
             const canvas = document.createElement("canvas");
             canvas.width = video.videoWidth;
@@ -124,6 +126,7 @@ export default defineComponent({
             jokerColor,
             numberOptions: Array.from({length: 13}, (v, k) => k + 1),
             colorOptions: ["Kırmızı", "Siyah", "Mavi", "Sarı"],
+            isButtonDisabled,
         };
     },
 });
