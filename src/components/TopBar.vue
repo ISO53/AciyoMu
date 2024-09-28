@@ -1,7 +1,10 @@
 <template>
     <div class="top-bar-div">
         <div class="elements">
-            <a href="https://aciyo-mu-m3gt.vercel.app">Açıyo mu</a>
+            <a class="app-href" href="https://aciyo-mu-m3gt.vercel.app">
+                <img class="app-logo" src="@/assets/app-logo.png" alt="App Logo" />
+                Açıyo mu
+            </a>
             <a id="github-link" href="https://github.com/ISO53/AciyoMu" target="_blank" rel="noopener noreferrer">
                 <img class="github-logo" src="@/assets/github-logo.svg" alt="GitHub Logo" />
             </a>
@@ -46,5 +49,18 @@
     object-fit: contain;
     width: 100%;
     height: 100%;
+}
+
+.app-href {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+
+.app-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
 </style>
