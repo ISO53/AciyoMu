@@ -15,8 +15,8 @@ export default {
             try {
                 const constraints = {
                     video: {
-                        facingMode: { exact: "environment" }
-                    }
+                        facingMode: {exact: "environment"},
+                    },
                 };
                 this.$refs.video.srcObject = await navigator.mediaDevices.getUserMedia(constraints);
             } catch (error) {
