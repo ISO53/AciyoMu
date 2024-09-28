@@ -83,6 +83,16 @@ export default defineComponent({
             const context = canvas.getContext("2d");
             context.drawImage(video, 0, 0, canvas.width, canvas.height);
             photo.value = canvas.toDataURL("image/jpeg");
+
+            // Set the background of CameraBackground to the taken photo
+            const cameraBackground = document.querySelector(".camera-background");
+            cameraBackground.style.backgroundImage = `url(${photo.value})`;
+
+            // Stop the camera
+            const stream = video.srcObject;
+            const tracks = stream.getTracks();
+            tracks.forEach((track) => track.stop());
+            video.srcObject = null;
         };
 
         const sendData = async () => {

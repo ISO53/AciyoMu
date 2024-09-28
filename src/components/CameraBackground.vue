@@ -36,6 +36,9 @@ export default {
     height: 100%;
     overflow: hidden;
     z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 video {
