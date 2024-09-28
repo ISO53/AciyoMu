@@ -245,18 +245,18 @@ export default defineComponent({
     width: 150px;
     height: 40px;
     border-radius: 20px;
-    border: 2px solid white;
+    border: 1px solid white;
     background-color: transparent;
     text-transform: uppercase;
     font-family: monospace;
-    font-weight: 900;
+    font-weight: 100;
     letter-spacing: 1px;
     color: white;
+    transition: transform 250ms ease;
 }
 
 .result-div button:active {
-    background-color: white;
-    color: black;
+    transform: scale(105%);
 }
 
 .vue-scroll-picker {
