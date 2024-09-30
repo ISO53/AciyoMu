@@ -45,6 +45,7 @@ app.post("/api/analyze-okey", async (req, res) => {
         // Clean the markdown
         const cleanJsonString = result.response.text().replace("```json", "").replaceAll("`", "").replaceAll("\n", "");
 
+        // Get the pieces
         const pieces = JSON.parse(cleanJsonString);
 
         console.log(pieces);
