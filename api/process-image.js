@@ -48,7 +48,6 @@ app.post("/api/analyze-okey", async (req, res) => {
         // Get the pieces
         const pieces = JSON.parse(cleanJsonString);
 
-        console.log(pieces);
 
         res.status(200).json(pieces);
     } catch (error) {
