@@ -1,6 +1,7 @@
 import express from "express";
 import {GoogleGenerativeAI} from "@google/generative-ai";
 import dotenv from "dotenv";
+import {SimulatedAnnealing, Mutation} from "./heuristic-okey-solver.js";
 
 // Load environment variables
 dotenv.config();
@@ -48,8 +49,11 @@ app.post("/api/analyze-okey", async (req, res) => {
         // Get the pieces
         const pieces = JSON.parse(cleanJsonString);
 
+        // Scramble mutation gives the best results
+        const sa = new SimulatedAnnealing(100000, 0.99, Mutation.scramble, pieces, color, number);
+        const bestHand = sa.run();
 
-        res.status(200).json(pieces);
+        res.status(200).json(bestHand);
     } catch (error) {
         console.error("Error processing the image:", error);
         res.status(500).json({error: "Internal server error"});
