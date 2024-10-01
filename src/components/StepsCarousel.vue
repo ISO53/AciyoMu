@@ -132,7 +132,7 @@ export default defineComponent({
             };
 
             try {
-                const response = await fetch("http://aciyomu-iso53s-projects.vercel.app/api/process-image", {
+                const response = await fetch("https://aciyomu-iso53s-projects.vercel.app/api/process-image", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
