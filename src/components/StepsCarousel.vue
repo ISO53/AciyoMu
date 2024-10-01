@@ -52,7 +52,13 @@
             <Navigation />
         </template>
     </Carousel>
-    <OkeyResult v-if="showOkeyResult" :headerText="headerText" :isFullScreen="isFullScreen" :resultData="resultData" />
+    <OkeyResult
+        v-if="showOkeyResult"
+        :headerText="headerText"
+        :isFullScreen="isFullScreen"
+        :resultData="resultData"
+        :score="score"
+    />
 </template>
 
 <script>
@@ -82,6 +88,7 @@ export default defineComponent({
         const headerText = ref("Görüntü işleniyor...");
         const isFullScreen = ref(false);
         const resultData = ref(null);
+        const score = ref(null);
 
         const takePhoto = () => {
             isButtonDisabled.value = true;
@@ -138,7 +145,8 @@ export default defineComponent({
                 isFullScreen.value = true;
 
                 // Pass the result data to the OkeyResult component
-                resultData.value = result;
+                resultData.value = result.hand;
+                score.value = result.score;
             } catch (error) {
                 console.error("Error sending data:", error);
             }
@@ -155,7 +163,8 @@ export default defineComponent({
             showOkeyResult,
             headerText,
             isFullScreen,
-            resultData
+            resultData,
+            score,
         };
     },
 });

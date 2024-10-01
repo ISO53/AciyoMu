@@ -11,6 +11,7 @@
                 />
             </div>
         </div>
+        <h2 class="score">Elin skoru: {{ score }}</h2>
     </div>
 </template>
 
@@ -39,6 +40,7 @@ export default {
             console.log("Processing result data:", data);
             // Add your processing logic here
         },
+        score: Number,
     },
 };
 </script>
@@ -57,7 +59,7 @@ export default {
     border-radius: 100px;
     padding: 20px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: all 0.5s ease;
@@ -87,6 +89,13 @@ export default {
 
 .okey-group {
     display: flex;
-    flex-direction: row
+    flex-direction: row;
+}
+
+.score {
+    font-weight: 900;
+    margin-top: 20px;
+    font-family: monospace;
+    color: #fafafa;
 }
 </style>

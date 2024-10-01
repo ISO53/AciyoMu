@@ -59,7 +59,7 @@ app.post("/api/analyze-okey", async (req, res) => {
         const sa = new SimulatedAnnealing(100000, 0.99, Mutation.scramble, pieces, color, number);
         const bestHand = sa.run();
 
-        res.status(200).json(bestHand);
+        res.status(200).json({hand: bestHand, score: sa.calculateFitness(bestHand)});
     } catch (error) {
         console.error("Error processing the image:", error);
         res.status(500).json({error: "Internal server error"});
@@ -185,7 +185,7 @@ app.post("/api/test", async (req, res) => {
         ],
     ];
 
-    res.status(200).json(bestHand);
+    res.status(200).json({hand: bestHand, score: 105});
 });
 
 app.listen(port, () => {
