@@ -1,7 +1,7 @@
 <template>
     <div :class="['okey-result', {'full-screen': isFullScreen}]">
         <h1 v-if="!isFullScreen">{{ headerText }}</h1>
-        <div v-if="!isFullScreen" class="okey-rack">
+        <div v-if="isFullScreen" class="okey-rack">
             <div v-for="(group, groupIndex) in resultData" :key="groupIndex" class="okey-group">
                 <OkeyPiece
                     v-for="(piece, pieceIndex) in group"
@@ -11,7 +11,7 @@
                 />
             </div>
         </div>
-        <h2 v-if="!isFullScreen" class="score">Elin skoru: {{ score }}</h2>
+        <h2 v-if="isFullScreen" class="score">Elin skoru: {{ score }}</h2>
     </div>
 </template>
 
