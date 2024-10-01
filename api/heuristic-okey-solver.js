@@ -66,7 +66,25 @@ class SimulatedAnnealing {
             this.temperature *= this.coolingRate;
         }
 
-        return bestHand;
+        // Merge subarrays with size less than 3
+        let mergedHand = [];
+        let tempArr = [];
+
+        for (let group of bestHand) {
+            if (group.length < 3) {
+                tempArr = tempArr.concat(group);
+            } else {
+                mergedHand.push(group);
+            }
+        }
+
+        // Sort the merged hand by group size (larger groups came first)
+        mergedHand.sort((a, b) => b.length - a.length);
+
+        // If there are remaining pieces in tempArr, push them as a single group
+        if (tempArr.length > 0) mergedHand.push(tempArr);
+
+        return mergedHand;
     }
 
     /**
