@@ -17,6 +17,12 @@ const model = genAI.getGenerativeModel({
 
 app.use(express.json({limit: "50mb"}));
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "https://aciyomu-iso53s-projects.vercel.app");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.post("/api/analyze-okey", async (req, res) => {
     try {
         const {image, number, color} = req.body;
