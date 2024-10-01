@@ -66,6 +66,128 @@ app.post("/api/analyze-okey", async (req, res) => {
     }
 });
 
+app.post("/api/test", async (req, res) => {
+    const bestHand = [
+        [
+            {
+                color: "red",
+                number: 5,
+                type: "piece",
+            },
+            {
+                color: "red",
+                number: 6,
+                type: "piece",
+            },
+            {
+                color: "red",
+                number: 7,
+                type: "piece",
+            },
+        ],
+        [
+            {
+                color: "red",
+                number: 6,
+                type: "piece",
+            },
+            {
+                color: "red",
+                number: 7,
+                type: "piece",
+            },
+            {
+                color: "red",
+                number: 8,
+                type: "piece",
+            },
+        ],
+        [
+            {
+                color: "red",
+                number: 12,
+                type: "piece",
+            },
+            {
+                color: "red",
+                number: 13,
+                type: "piece",
+            },
+            {
+                color: "black",
+                number: 5,
+                type: "piece",
+            },
+            {
+                color: "black",
+                number: 11,
+                type: "piece",
+            },
+            {
+                color: "black",
+                number: 9,
+                type: "piece",
+            },
+            {
+                color: "black",
+                number: 10,
+                type: "piece",
+            },
+            {
+                color: "black",
+                number: 11,
+                type: "piece",
+            },
+            {
+                color: "black",
+                number: 12,
+                type: "piece",
+            },
+        ],
+        [
+            {
+                color: "blue",
+                number: 7,
+                type: "piece",
+            },
+            {
+                color: "orange",
+                number: 7,
+                type: "piece",
+            },
+            {
+                color: "black",
+                number: 7,
+                type: "piece",
+            },
+        ],
+        [
+            {
+                color: "black",
+                number: 2,
+                type: "piece",
+            },
+            {
+                color: "black",
+                number: 3,
+                type: "piece",
+            },
+            {
+                color: "black",
+                number: 4,
+                type: "piece",
+            },
+            {
+                color: "black",
+                number: 5,
+                type: "fake_okey",
+            },
+        ],
+    ];
+
+    res.status(200).json(bestHand);
+});
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
