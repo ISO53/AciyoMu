@@ -117,7 +117,7 @@ export default defineComponent({
             setInterval(() => {
                 headerText.value = texts[index];
                 index = (index + 1) % texts.length;
-            }, 1500);
+            }, 2500);
         };
 
         const sendData = async () => {
