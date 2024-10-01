@@ -22,6 +22,7 @@
     width: 100%;
     height: 100px;
     background-image: linear-gradient(black, transparent);
+    z-index: 1;
 }
 
 .top-bar-div a {
