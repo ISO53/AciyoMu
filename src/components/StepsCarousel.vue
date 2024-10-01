@@ -133,7 +133,7 @@ export default defineComponent({
                     body: JSON.stringify(data),
                 });
                 const result = await response.json();
-                console.log(result);
+
                 // Transition to full screen
                 isFullScreen.value = true;
 
