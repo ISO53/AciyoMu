@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import OkeyPiece from './OkeyPiece.vue';
+import OkeyPiece from "./OkeyPiece.vue";
 
 export default {
     name: "OkeyResult",
