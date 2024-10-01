@@ -27,19 +27,6 @@ export default {
         headerText: String,
         isFullScreen: Boolean,
         resultData: Array,
-    },
-    watch: {
-        resultData(newVal) {
-            if (newVal) {
-                this.processResult(newVal);
-            }
-        },
-    },
-    methods: {
-        processResult(data) {
-            console.log("Processing result data:", data);
-            // Add your processing logic here
-        },
         score: Number,
     },
 };
