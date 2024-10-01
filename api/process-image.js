@@ -23,7 +23,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.post("/api/analyze-okey", async (req, res) => {
+app.post("/api/process-image", async (req, res) => {
     try {
         const {image, number, color} = req.body;
 
