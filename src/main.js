@@ -1,8 +1,13 @@
-import './assets/main.css'
+import "./assets/main.css";
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import { inject } from '@vercel/analytics/*'
+import {createApp} from "vue";
+import App from "./App.vue";
 
-createApp(App).mount('#app')
-inject()
+async function setupAnalytics() {
+    const {inject} = await import("@vercel/analytics");
+    inject();
+}
+
+setupAnalytics();
+
+createApp(App).mount("#app");
