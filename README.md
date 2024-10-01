@@ -1,6 +1,6 @@
 # AciyoMu
 
-[![GitHub Deployments](https://img.shields.io/github/deployments/ISO53/AciyoMu/:environment?label=GitHub%20Deployments&style=round-square&color=black)](https://github.com/ISO53/AciyoMu/deployments)
+[![Production Deployment](https://img.shields.io/github/deployments/ISO53/AciyoMu/Production?label=GitHub%20Deployments&style=round-square&color=black)](https://github.com/ISO53/AciyoMu/deployments)
 [![License](https://img.shields.io/badge/license-GNU-black.svg?style=round-square)](LICENSE)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ISO53/AciyoMu?style=round-square&color=black)
 
