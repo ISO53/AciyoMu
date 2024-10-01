@@ -17,14 +17,14 @@
             </div>
         </Slide>
         <Slide key="3">
-            <div class="carousel__item choose-joker-div">
-                <h1>Jokeri Seç</h1>
+            <div class="carousel__item choose-okey-div">
+                <h1>Okeyi Seç</h1>
                 <div style="margin-top: 10px">
                     <div>
                         <label for="number">Numara</label>
                         <VueScrollPicker
                             :options="numberOptions"
-                            v-model="jokerNumber"
+                            v-model="okeyNumber"
                             :dragSensitivity="0.5"
                             :touchSensitivity="0.5"
                         />
@@ -33,7 +33,7 @@
                         <label for="color">Renk</label>
                         <VueScrollPicker
                             :options="colorOptions"
-                            v-model="jokerColor"
+                            v-model="okeyColor"
                             :dragSensitivity="0.5"
                             :touchSensitivity="0.5"
                         />
@@ -81,8 +81,8 @@ export default defineComponent({
     },
     setup() {
         const photo = ref(null);
-        const jokerNumber = ref(null);
-        const jokerColor = ref(null);
+        const okeyNumber = ref(null);
+        const okeyColor = ref(null);
         const isButtonDisabled = ref(false);
         const showOkeyResult = ref(false);
         const headerText = ref("Görüntü işleniyor...");
@@ -127,8 +127,8 @@ export default defineComponent({
 
             const data = {
                 image: photo.value,
-                number: jokerNumber.value,
-                color: jokerColor.value,
+                number: okeyNumber.value,
+                color: okeyColor.value,
             };
 
             try {
@@ -155,8 +155,8 @@ export default defineComponent({
         return {
             takePhoto,
             sendData,
-            jokerNumber,
-            jokerColor,
+            okeyNumber,
+            okeyColor,
             numberOptions: Array.from({length: 13}, (v, k) => k + 1),
             colorOptions: ["Kırmızı", "Siyah", "Mavi", "Sarı"],
             isButtonDisabled,
@@ -249,23 +249,23 @@ export default defineComponent({
     background-color: rgb(200, 200, 200);
 }
 
-.choose-joker-div {
+.choose-okey-div {
     align-items: center;
 }
 
-.choose-joker-div h1 {
+.choose-okey-div h1 {
     font-size: 0.8rem;
     color: rgb(200, 200, 200);
 }
 
-.choose-joker-div > div {
+.choose-okey-div > div {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
 }
 
-.choose-joker-div > div > div {
+.choose-okey-div > div > div {
     width: 100%;
 }
 
