@@ -52,12 +52,14 @@
             <Navigation />
         </template>
     </Carousel>
+    <OkeyResult v-if="showOkeyResult" :headerText="headerText" :isFullScreen="isFullScreen" :resultData="resultData" />
 </template>
 
 <script>
 import {defineComponent, ref} from "vue";
 import {Carousel, Pagination, Slide, Navigation} from "vue3-carousel";
 import {VueScrollPicker} from "vue-scroll-picker";
+import OkeyResult from "./OkeyResult.vue";
 import "vue3-carousel/dist/carousel.css";
 import "vue-scroll-picker/lib/style.css";
 
@@ -69,12 +71,17 @@ export default defineComponent({
         Pagination,
         Navigation,
         VueScrollPicker,
+        OkeyResult,
     },
     setup() {
         const photo = ref(null);
         const jokerNumber = ref(null);
         const jokerColor = ref(null);
         const isButtonDisabled = ref(false);
+        const showOkeyResult = ref(false);
+        const headerText = ref("Görüntü işleniyor...");
+        const isFullScreen = ref(false);
+        const resultData = ref(null);
 
         const takePhoto = () => {
             isButtonDisabled.value = true;
@@ -97,7 +104,20 @@ export default defineComponent({
             video.srcObject = null;
         };
 
+        const changeHeaderText = () => {
+            const texts = ["Görüntü işleniyor...", "Hamleler hesaplanıyor...", "Neredeyse bitti..."];
+            let index = 0;
+            setInterval(() => {
+                headerText.value = texts[index];
+                index = (index + 1) % texts.length;
+            }, 1500);
+        };
+
         const sendData = async () => {
+            // Show OkeyResult component
+            showOkeyResult.value = true;
+            changeHeaderText();
+
             const data = {
                 image: photo.value,
                 number: jokerNumber.value,
@@ -114,6 +134,11 @@ export default defineComponent({
                 });
                 const result = await response.json();
                 console.log(result);
+                // Transition to full screen
+                isFullScreen.value = true;
+
+                // Pass the result data to the OkeyResult component
+                resultData.value = result;
             } catch (error) {
                 console.error("Error sending data:", error);
             }
@@ -127,6 +152,10 @@ export default defineComponent({
             numberOptions: Array.from({length: 13}, (v, k) => k + 1),
             colorOptions: ["Kırmızı", "Siyah", "Mavi", "Sarı"],
             isButtonDisabled,
+            showOkeyResult,
+            headerText,
+            isFullScreen,
+            resultData
         };
     },
 });
