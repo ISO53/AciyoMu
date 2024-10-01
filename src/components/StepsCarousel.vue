@@ -5,8 +5,8 @@
             <div class="carousel__item">
                 <h1>Açıyo mu?</h1>
                 <p>
-                    Açıyo mu sitesine hoş geldin. Sen okeydeki elinin fotoğrafını bize yolla, biz elinin açıp açmadığını sana
-                    söyleyelim.
+                    Açıyo mu sitesine hoş geldin. Sen okeydeki elinin fotoğrafını bize yolla, biz elinin açıp açmadığını
+                    sana söyleyelim.
                 </p>
             </div>
         </Slide>
