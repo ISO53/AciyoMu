@@ -21,6 +21,7 @@ export default {
                 this.$refs.video.srcObject = await navigator.mediaDevices.getUserMedia(constraints);
             } catch (error) {
                 console.error("Error accessing the camera:", error);
+                // this.$refs.video.srcObject = await navigator.mediaDevices.getUserMedia({video: true});
             }
         },
     },
