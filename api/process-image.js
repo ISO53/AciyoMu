@@ -59,7 +59,25 @@ app.post("/api/process-image", async (req, res) => {
         const sa = new SimulatedAnnealing(100000, 0.99, Mutation.scramble, pieces, color, number);
         const bestHand = sa.run();
 
-        res.status(200).json({hand: bestHand, score: sa.calculateFitness(bestHand)});
+        // Merge subarrays with size less than 3
+        let mergedHand = [];
+        let tempArr = [];
+
+        for (let group of bestHand) {
+            if (group.length < 3) {
+                tempArr = tempArr.concat(group);
+            } else {
+                mergedHand.push(group);
+            }
+        }
+
+        // Sort the merged hand by group size (larger groups came first)
+        mergedHand.sort((a, b) => b.length - a.length);
+
+        // If there are remaining pieces in tempArr, push them as a single group
+        if (tempArr.length > 0) mergedHand.push(tempArr);
+
+        res.status(200).json({hand: mergedHand, score: sa.calculateFitness(bestHand)});
     } catch (error) {
         console.error("Error processing the image:", error);
         res.status(500).json({error: "Internal server error"});
