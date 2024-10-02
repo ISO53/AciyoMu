@@ -359,37 +359,3 @@ class Mutation {
 }
 
 export {SimulatedAnnealing, Piece, Mutation};
-
-// Example usage
-// const okeyNumber = 10;
-// const okeyColor = "blue";
-// const pieces = [
-//     {color: "yellow", number: 7},
-//     {color: "fake_okey", number: 0},
-//     {color: "blue", number: 7},
-//     {color: "red", number: 7},
-//     // {color: "okey", number: 0},
-//     {color: "black", number: 11},
-//     {color: "black", number: 12},
-//     {color: "red", number: 1},
-//     {color: "red", number: 6},
-//     {color: "red", number: 10},
-//     {color: "red", number: 12},
-//     {color: "yellow", number: 2},
-//     {color: "yellow", number: 7},
-//     {color: "yellow", number: 10},
-//     {color: "yellow", number: 12},
-//     {color: "blue", number: 13},
-//     {color: "blue", number: 5},
-//     {color: "blue", number: 8},
-//     {color: "blue", number: 4},
-//     {color: "blue", number: 6},
-//     {color: "black", number: 13},
-//     {color: "black", number: 9},
-// ];
-
-// Scramble mutation gives the best results
-// const sa = new SimulatedAnnealing(100000, 0.99, Mutation.scramble, pieces, okeyColor, okeyNumber);
-// const hand = sa.run();
-// console.log(hand);
-// console.log("Score -> ", sa.calculateFitness(hand));
