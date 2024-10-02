@@ -71,13 +71,17 @@ export default {
 
 .okey-rack {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
+    column-gap: 20px;
+    row-gap: 5px;
 }
 
 .okey-group {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .score {
