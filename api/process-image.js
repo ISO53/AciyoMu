@@ -159,7 +159,7 @@ app.post("/api/test", async (req, res) => {
             {
                 color: "black",
                 number: 12,
-                type: "piece",
+                type: "okey",
             },
         ],
         [
