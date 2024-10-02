@@ -97,16 +97,9 @@ class SimulatedAnnealing {
      */
     generateHand(pieces) {
         const hand = [];
-        let okeyCount = 0;
 
         for (let i = 0; i < pieces.length; i++) {
             const piece = pieces[i];
-
-            // We'll deal with okeys later
-            if (piece.type === "okey") {
-                okeyCount++;
-                continue;
-            }
 
             if (hand.length === 0) {
                 hand.push([piece]); // push a new group
@@ -189,8 +182,6 @@ class SimulatedAnnealing {
             }
         }
 
-        // Check for best place to fit the okeys (if there are any)
-
         return hand;
     }
 
@@ -200,7 +191,23 @@ class SimulatedAnnealing {
      * @returns {Array.<Piece>} mutated version of the array
      */
     mutate(pieces) {
-        return this.mutationAlgorithm(pieces);
+        return this.mutateOkey(this.mutationAlgorithm(pieces));
+    }
+
+    /**
+     * Takes an array of pieces and mutates the okeys (jokers)
+     * @param {Array.<Piece>} pieces all the pieces the user has
+     * @returns {Array.<Piece>} mutated version of the array
+     */
+    mutateOkey(pieces) {
+        pieces
+            .filter((piece) => piece.type === "okey")
+            .forEach(
+                (okey) =>
+                    (okey.number = Math.floor((1 - Math.pow(Math.random(), 2)) * 13) + 1) &&
+                    (okey.color = ["red", "black", "blue", "yellow"][Math.floor(Math.random() * 4)])
+            );
+        return pieces;
     }
 
     /**
