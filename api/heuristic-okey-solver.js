@@ -8,7 +8,7 @@ class SimulatedAnnealing {
      * @param {String} okeyColor specifies the current game's okey (joker) color
      * @param {Number} okeyNumber specifies the current game's okey (joker) number
      */
-    constructor(temperature, coolingRate, mutationAlgorithm = Mutation.insert(), pieces, okeyColor, okeyNumber) {
+    constructor(temperature, coolingRate, mutationAlgorithm = Mutation.insert, pieces, okeyColor, okeyNumber) {
         this.temperature = temperature;
         this.coolingRate = coolingRate;
         this.pieces = pieces.map((piece) => new Piece(piece.color, piece.number));
