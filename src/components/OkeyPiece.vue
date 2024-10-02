@@ -1,7 +1,7 @@
 <template>
     <div class="okey-piece">
-        <h1 v-if="type !== 'okey' && type !== 'fake_okey'" class="number" :style="{color: color}">{{ number }}</h1>
-        <div v-if="type !== 'okey' && type !== 'fake_okey'" class="color" :style="{backgroundColor: color}"></div>
+        <h1 v-if="type === 'piece'"  class="number" :style="{color: color}">{{ number }}</h1>
+        <div v-if="type === 'piece'" class="color" :style="{backgroundColor: color}"></div>
 
         <!-- for fake okey -->
         <div v-if="type === 'fake_okey'" class="star"></div>
