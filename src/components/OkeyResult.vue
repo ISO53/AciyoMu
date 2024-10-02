@@ -8,6 +8,7 @@
                     :key="pieceIndex"
                     :number="piece.number"
                     :color="piece.color"
+                    :type="piece.type"
                 />
             </div>
         </div>
