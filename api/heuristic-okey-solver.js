@@ -196,8 +196,8 @@ class SimulatedAnnealing {
 
     /**
      * Takes an array and applies selected {@link SimulatedAnnealing.mutationAlgorithm}
-     * @param {Array.<Array.<Piece>>} pieces all the pieces the user has
-     * @returns {Array.<Array.<Piece>>} mutated version of the array
+     * @param {Array.<Piece>} pieces all the pieces the user has
+     * @returns {Array.<Piece>} mutated version of the array
      */
     mutate(pieces) {
         return this.mutationAlgorithm(pieces);
