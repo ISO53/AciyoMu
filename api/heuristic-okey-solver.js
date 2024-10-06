@@ -4,7 +4,7 @@ class SimulatedAnnealing {
      *
      * @param {Number} temperature initial temperature value for simulated annealing
      * @param {Number} coolingRate cooling value for simulated annealing
-     * @param {function(Array.<Piece>): Array.<Piece>} mutationAlgorithm Function that mutates the pieces o each generation
+     * @param {function(Array.<Piece>): Array.<Piece>} mutationAlgorithm function that mutates the pieces on each generation. Functions could be selected from {@link Mutation} class.
      * @param {Array.<Object>} pieces users okey pieces
      * @param {String} okeyColor specifies the current game's okey (joker) color
      * @param {Number} okeyNumber specifies the current game's okey (joker) number
