@@ -272,8 +272,8 @@ class Piece {
 class Mutation {
     /**
      * Takes an array and applies inserts mutation
-     * @param {Array.<Array.<Piece>>} pieces all the pieces the user has
-     * @returns {Array.<Array.<Piece>>} mutated version of the array
+     * @param {Array.<Piece>} pieces all the pieces the user has
+     * @returns {Array.<Piece>} mutated version of the array
      */
     static insert(pieces) {
         const unique = [...Array(pieces.length).keys()]
@@ -294,8 +294,8 @@ class Mutation {
 
     /**
      * Takes an array and applies inversion mutation
-     * @param {Array.<Array.<Piece>>} pieces all the pieces the user has
-     * @returns {Array.<Array.<Piece>>} mutated version of the array
+     * @param {Array.<Piece>} pieces all the pieces the user has
+     * @returns {Array.<Piece>} mutated version of the array
      */
     static inversion(pieces) {
         const unique = [...Array(pieces.length).keys()].sort(() => Math.random() - 0.5).slice(0, 2);
@@ -320,8 +320,8 @@ class Mutation {
 
     /**
      * Takes an array and applies scramble mutation
-     * @param {Array.<Array.<Piece>>} pieces all the pieces the user has
-     * @returns {Array.<Array.<Piece>>} mutated version of the array
+     * @param {Array.<Piece>} pieces all the pieces the user has
+     * @returns {Array.<Piece>} mutated version of the array
      */
     static scramble(pieces) {
         // Generate a random subset size between 1 and pieces.length
@@ -349,8 +349,8 @@ class Mutation {
 
     /**
      * Takes an array and applies swap mutation
-     * @param {Array.<Array.<Piece>>} pieces all the pieces the user has
-     * @returns {Array.<Array.<Piece>>} mutated version of the array
+     * @param {Array.<Piece>} pieces all the pieces the user has
+     * @returns {Array.<Piece>} mutated version of the array
      */
     static swap(pieces) {
         const unique = [...Array(pieces.length).keys()].sort(() => Math.random() - 0.5).slice(0, 2);
